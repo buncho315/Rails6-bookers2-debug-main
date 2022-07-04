@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update', as: 'update_user'
   devise_for :users
   resources :users, only: [:show, :index, :edit]
-  resources :books
-  resource :favorites, only: [:create, :destroy]
+  resources :books do
+    resource :favorites, only: [:create, :destroy]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
