@@ -18,6 +18,7 @@
         <td><%= book.body %></td>
         <td><%= render 'favorites/favorite', book: book %></td>
         <!--book=_favoriteのbook、右book=11~22行目内でのbook-->
+        <td>コメント数: <%= @book.book_comments.count %></td>
       </tr>
     <% end %>
   </tbody>
