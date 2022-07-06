@@ -1,0 +1,2 @@
+module Relationships　followingsHelper
+end
