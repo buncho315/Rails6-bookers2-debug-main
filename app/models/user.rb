@@ -33,4 +33,18 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  def self.looks(search, word)
+    if search == "完全一致"
+      @user = User.where("name Like?", "#{word}")
+    elsif search == "前方一致"
+      @user = User.where("name Like?", "#{word}%")
+    elsif search == "後方一致"
+      @user = User.where("name Like?", "%#{word}")
+    elsif search == "部分一致"
+      @user = User.where("name Like?", "%#{word}%")
+    else
+      @user = User.all
+    end
+  end
+
 end
